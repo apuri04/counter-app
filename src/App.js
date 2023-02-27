@@ -23,11 +23,17 @@ const ToggleCounter = ({visible}) => {
     
 const App = () => {
     const [showCounter,setShowCounter] = useState(true)
+    const [show,setShow] = useState("hide")
 return(
         <div>
             {showCounter && <ToggleCounter visible={showCounter}/>}
             <br/>
-            <button onClick={() => setShowCounter(!showCounter)} className="btn">Show Counter</button>
+            <button onClick={() => {
+                setShowCounter(!showCounter)
+                console.log(showCounter)
+                 showCounter === true ? setShow("show") : setShow("hide")
+            }
+            } className="btn">{show} Counter</button>
         </div>
     )
 //todo - change button name 
